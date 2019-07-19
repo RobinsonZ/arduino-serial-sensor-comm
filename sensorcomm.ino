@@ -9,7 +9,7 @@ void setup() {
   for (int i = 2; i <= 12; i++) {
     pinMode(i, INPUT_PULLUP);
   }
-  Serial.begin(19200); 
+  Serial.begin(115200); 
 }
 
 void loop() {
@@ -52,7 +52,8 @@ void loop() {
   // base64 encode it all
   encode_base64(buf, 15, msg);
   msg[20] = 10; // ASCII newline char
-  
-  Serial.write(msg, 21);
+
   Serial.flush();
+  Serial.write(msg, 21);
+  delay(10);
 }
