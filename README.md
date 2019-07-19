@@ -24,4 +24,4 @@ This is then Base64-encoded and a trailing newline is added. All numbers are tra
 
 ## Python client
 
-A simple Python client to read the aforementioned data packets from a serial port (the address of which can be changed by modifying line 3) and print them to the console.
+A simple Python client to read the aforementioned data packets from a serial port (the address of which can be changed by modifying line 3) and print them to the console. Requires [PySerial](https://pythonhosted.org/pyserial/).
