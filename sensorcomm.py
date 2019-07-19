@@ -1,10 +1,11 @@
 import sys, serial, struct, binascii
 
-ino = serial.Serial("/dev/ttyACM0", 19200)
+ino = serial.Serial("/dev/ttyACM0", 115200)
 ino.readline()
 
 while True:
     b64 = ino.readline()
+    print(b64)
     try:
         data = binascii.a2b_base64(b64)
     
@@ -29,5 +30,5 @@ while True:
         real_cksum = int.from_bytes(other_data[6], "big")
         
         print("cksum " + hex(cksum)[2:].ljust(2) + ((" should be " + hex(real_cksum)[2:].ljust(2)) if cksum != real_cksum else ""))
-    except binascii.Error:
-        print("Read error, retrying", file=sys.stderr)
+    except (binascii.Error, IndexError) as err:
+        print("Read error (" + type(err).__name__ + ": " + str(err) + ") on packet " + str(b64) + ", retrying", file=sys.stderr)
