@@ -8,7 +8,7 @@ This repository contains two pieces of code:
 A simple sketch to transmit the state of DIO pins 2–12 and AIO 0–5 over the serial USB connection on an Arduino Uno.
 Requires [base64_arduino](https://github.com/Densaugeo/base64_arduino).
 
-Transmits a packet roughly 114 times per second, but this can be adjusted by changing the baud rate.
+Transmits a packet roughly 100 times per second; this can be adjusted by changing the value given to `delay()` at the bottom.
 
 ### Packet format
 
