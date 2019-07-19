@@ -5,7 +5,6 @@ ino.readline()
 
 while True:
     b64 = ino.readline()
-    print(b64)
     try:
         data = binascii.a2b_base64(b64)
     
